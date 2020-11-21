@@ -10,7 +10,7 @@ Add the following to your `pubspec.yaml` file:
       animated_radio_buttons: ^0.0.1
 
 ## Simple Usage
-#### Creating a basic `CheckboxGroup`
+#### Creating a basic `RadioButtons Group`
 
     AnimatedRadioButtons(
                 backgroundColor: Colors.yellow[400],
