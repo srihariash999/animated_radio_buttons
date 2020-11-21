@@ -2,16 +2,14 @@
 
 A radio button package for flutter. This widget is useful to quickly add a set of radio buttons to your flutter app
 
-## Installing
-
-Add the following to your `pubspec.yaml` file:
-
-    dependencies:
-      animated_radio_buttons: ^0.0.1
 
 ## Simple Usage
+
 #### Creating a basic `RadioButtons Group`
 
+    
+    int myVar ;
+    
     AnimatedRadioButtons(
                 backgroundColor: Colors.yellow[400],
                 value: myVar,
@@ -37,3 +35,8 @@ Add the following to your `pubspec.yaml` file:
                   });
                 },
               );
+
+<p>
+  <img width="320px" alt="Output" src=""/>
+
+</p>

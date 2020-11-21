@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import 'animated_radio_button_item.dart';
