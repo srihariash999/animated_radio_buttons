@@ -45,4 +45,11 @@ Initial Release. This widget is useful to quickly add a set of radio buttons to 
 Features:
 - Example improved.
 - ReadMe updated (screenshots).
+  
+## [0.0.7] - Nov 21, 2020
+
+ This widget is useful to quickly add a set of radio buttons to your flutter app
+
+Features:
+- Updated descriptions
 

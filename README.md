@@ -1,6 +1,6 @@
 # animated_radio_buttons
 
-A radio button package for flutter. This widget is useful to quickly add a set of radio buttons to your flutter app
+A radio button package for flutter. This widget is useful to quickly add a set of radio buttons to your flutter app.
 
 
 
