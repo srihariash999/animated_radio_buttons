@@ -2,7 +2,7 @@ name: animated_radio_buttons
 description: A radio button package for flutter.
 version: 0.0.1
 author: Srihari Ayapilla
-homepage:
+homepage: https://github.com/srihariash999/animated_radio_buttons
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
