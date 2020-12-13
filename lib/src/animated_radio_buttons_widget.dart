@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'animated_radio_button_item.dart';
 
+List<double> _radii = [];
+double _buttonRadius;
+
 class AnimatedRadioButtons extends StatefulWidget {
   final List<AnimatedRadioButtonItem> items;
   final double buttonRadius;
@@ -21,18 +24,30 @@ class AnimatedRadioButtons extends StatefulWidget {
     this.layoutAxis,
     this.animationCurve,
     this.backgroundColor,
-  }) : super(key: key);
+  }) {
+    if (buttonRadius == null) {
+      _buttonRadius = 30.0;
+    } else {
+      _buttonRadius = buttonRadius;
+    }
+
+    if (_radii.length == 0) {
+      for (int i = 0; i < items.length; i++) {
+        if (value != null && i == value) {
+          _radii.add(_buttonRadius * 0.20);
+        }
+        _radii.add(_buttonRadius * 0.70);
+      }
+    }
+  }
 
   @override
   _AnimatedRadioButtonsState createState() => _AnimatedRadioButtonsState();
 }
 
 class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
-  List<double> _radii = [];
-  double _buttonRadius;
   updateSelection(int k) {
     setState(() {
-      print("updating selection : $k");
       for (int i = 0; i < _radii.length; i++) {
         if (i == k) {
           _radii[i] = _buttonRadius * 0.20;
@@ -49,19 +64,6 @@ class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
 
   @override
   void initState() {
-    if (widget.buttonRadius != null) {
-      _buttonRadius = widget.buttonRadius;
-    } else if (widget.buttonRadius == null) {
-      _buttonRadius = 30.0;
-    }
-    _radii = [];
-    for (int i = 0; i < widget.items.length; i++) {
-      _radii.add(_buttonRadius * 0.70);
-    }
-    if (widget.value != null) {
-      updateSelection(widget.value);
-    }
-
     super.initState();
   }
 
@@ -76,7 +78,6 @@ class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
           spacing: 10.0,
           direction: widget.layoutAxis ?? Axis.horizontal,
           alignment: WrapAlignment.spaceEvenly,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: widget.items.map(
             (item) {
               int _localIndex = 0;

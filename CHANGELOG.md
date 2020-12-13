@@ -53,3 +53,11 @@ Features:
 Features:
 - Updated descriptions
 
+## [0.0.8] - Dec 13, 2020
+
+ This widget is useful to quickly add a set of radio buttons to your flutter app
+
+Features:
+- Fixed requires hot restart to reflect changes bug
+- Can set initial value by setting 'value' variable to an initial value
+
