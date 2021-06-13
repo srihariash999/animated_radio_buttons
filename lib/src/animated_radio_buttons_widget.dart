@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 import 'animated_radio_button_item.dart';
 
 List<double> _radii = [];
-double _buttonRadius;
+double? _buttonRadius;
 
 class AnimatedRadioButtons extends StatefulWidget {
   final List<AnimatedRadioButtonItem> items;
-  final double buttonRadius;
+  final double? buttonRadius;
   final Function(int value) onChanged;
 
-  final Color backgroundColor;
-  final Axis layoutAxis;
+  final Color? backgroundColor;
+  final Axis? layoutAxis;
   final int value;
-  final Curve animationCurve;
+  final Curve? animationCurve;
 
   AnimatedRadioButtons({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
     this.buttonRadius,
-    @required this.onChanged,
-    @required this.value,
+    required this.onChanged,
+    required this.value,
     this.layoutAxis,
     this.animationCurve,
     this.backgroundColor,
@@ -33,10 +33,10 @@ class AnimatedRadioButtons extends StatefulWidget {
 
     if (_radii.length == 0) {
       for (int i = 0; i < items.length; i++) {
-        if (value != null && i == value) {
-          _radii.add(_buttonRadius * 0.20);
+        if (i == value) {
+          _radii.add(_buttonRadius! * 0.20);
         }
-        _radii.add(_buttonRadius * 0.70);
+        _radii.add(_buttonRadius! * 0.70);
       }
     }
   }
@@ -50,9 +50,9 @@ class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
     setState(() {
       for (int i = 0; i < _radii.length; i++) {
         if (i == k) {
-          _radii[i] = _buttonRadius * 0.20;
+          _radii[i] = _buttonRadius! * 0.20;
         } else {
-          _radii[i] = _buttonRadius * 0.70;
+          _radii[i] = _buttonRadius! * 0.70;
         }
       }
     });
@@ -69,6 +69,7 @@ class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
 
   @override
   Widget build(BuildContext context) {
+    updateSelection(widget.value);
     return Material(
       child: Container(
         color: widget.backgroundColor ?? Colors.white,

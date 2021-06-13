@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int myVar = 3;
+  int? myVar = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
         children: [
           AnimatedRadioButtons(
             backgroundColor: Colors.yellow[400],
-            value: myVar,
+            value: myVar ?? 0,
             layoutAxis: Axis.horizontal,
             buttonRadius: 40.0,
             items: [
@@ -52,7 +52,14 @@ class _HomeState extends State<Home> {
           ),
           myVar == null
               ? Text(" Current selected index: *please select one* ")
-              : Text(" Current selected index: $myVar")
+              : Text(" Current selected index: $myVar"),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  myVar = 2;
+                });
+              },
+              child: Text("Set value to last")),
         ],
       ),
     );
