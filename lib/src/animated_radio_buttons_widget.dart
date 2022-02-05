@@ -14,7 +14,6 @@ class AnimatedRadioButtons extends StatefulWidget {
   final Axis? layoutAxis;
   final int value;
   final Curve? animationCurve;
-  final Alignment alignment;
 
   AnimatedRadioButtons({
     Key? key,
@@ -25,7 +24,6 @@ class AnimatedRadioButtons extends StatefulWidget {
     this.layoutAxis,
     this.animationCurve,
     this.backgroundColor,
-    this.alignment = Alignment.center,
   }) {
     if (buttonRadius == null) {
       _buttonRadius = 30.0;
@@ -75,7 +73,7 @@ class _AnimatedRadioButtonsState extends State<AnimatedRadioButtons> {
     return Material(
       child: Container(
         color: widget.backgroundColor ?? Colors.white,
-        alignment: widget.alignment,
+        alignment: Alignment.center,
         child: Wrap(
           runSpacing: 10.0,
           spacing: 10.0,
