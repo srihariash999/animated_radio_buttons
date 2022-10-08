@@ -3,18 +3,20 @@ import 'package:animated_radio_buttons/animated_radio_buttons.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Home(),
     ),
   );
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   int? myVar = 1;
 
   @override
@@ -32,17 +34,13 @@ class _HomeState extends State<Home> {
             buttonRadius: 40.0,
             items: [
               AnimatedRadioButtonItem(
-                  label: "Star Battles",
-                  color: Colors.black,
-                  fillInColor: Colors.grey),
+                  label: "Star Battles", color: Colors.black, fillInColor: Colors.grey),
               AnimatedRadioButtonItem(
                   label: "Star Trek",
-                  labelTextStyle: TextStyle(color: Colors.blue),
+                  labelTextStyle: const TextStyle(color: Colors.blue),
                   fillInColor: Colors.yellow[400]),
               AnimatedRadioButtonItem(
-                  label: "Losers",
-                  color: Colors.green,
-                  fillInColor: Colors.greenAccent)
+                  label: "Losers", color: Colors.green, fillInColor: Colors.greenAccent)
             ],
             onChanged: (value) {
               setState(() {
@@ -51,7 +49,7 @@ class _HomeState extends State<Home> {
             },
           ),
           myVar == null
-              ? Text(" Current selected index: *please select one* ")
+              ? const Text(" Current selected index: *please select one* ")
               : Text(" Current selected index: $myVar"),
           ElevatedButton(
               onPressed: () {
@@ -59,7 +57,7 @@ class _HomeState extends State<Home> {
                   myVar = 2;
                 });
               },
-              child: Text("Set value to last")),
+              child: const Text("Set value to last")),
         ],
       ),
     );
